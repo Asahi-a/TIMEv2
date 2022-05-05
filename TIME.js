@@ -52,7 +52,7 @@ if (Err == 0) {
 var Xk = (1.8((Vh*Vh)-(Vz*Vz)))/(-3.6Ak+(S/K));
 var Xg = (1.8((Vh*Vh)-(Vf*Vf)))/(3.6Ag+(S/K))+(Vh*Fr);
     
-//勾配上での実質的な加速度減速度を算出
+//勾配上での実質的な加速度減速度を算出(ver2.0)
 var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk)
 var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg))
 
