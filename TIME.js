@@ -56,6 +56,10 @@ var Xg = (1.8*((Vh*Vh)-(Vf*Vf)))/(3.6*Ag+(S/K))+(Vh*Fr);
 var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk)
 var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg))
 
+//この方法だと加減速しない場合加減速度がそれぞれ0になってしまう。加減速度は所要時間の分母にくるためバグが起きてしまう。そこでダミーの値を入れておく。
+if ( RAk=0 ) {RAk=1;}
+if ( RAg=0 ) {RAg=1;}
+
 //制限速度まで加速しきる時
 if (Xk+Xg<=Xe) {Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
 else{
