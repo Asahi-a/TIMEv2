@@ -95,7 +95,7 @@ else if (Xg <0){hTs.innerHTML ='何かしらの値が原因で不可能な数値
 
 else if (Err == 0){
 let hTs = document.getElementById('hTs');
-hTs.innerHTML ='<h1>駅間所要時間は'+Ts+'秒です。</h1><h2>駅間最高速度は'+Vh+'km/hです。</h2>'+Xk+'\n'+Xg;
+hTs.innerHTML ='<h1>駅間所要時間は'+Ts+'秒です。</h1><h2>駅間最高速度は'+Vh+'km/hです。</h2>'+Xk+'\n'+Xg+'\n'+RAg+'\n'+RAk;
 // alert ('駅間所要時間は'+Ts+'秒です。\n駅間最高速度は'+Vh+'km/hです。\n'+Xk+'\n'+Xg);
 }
 
