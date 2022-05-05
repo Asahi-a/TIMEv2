@@ -57,17 +57,17 @@ var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk)
 var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg))
 
 //制限速度まで加速しきる時
-if (Xk+Xg<=Xe) {Ts = (Vh-Vz)/Ak + (Vh-Vf)/Ag + (Xe-Xk-Xg)/Vh;}
+if (Xk+Xg<=Xe) {Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
 else{
     //加速しきらない時制限速度を微減させ続ける。
     //そもそもVhがVzやVfより低くなったらエラーなのでwhileの条件式に追加(Ver1.2)
     while (Xe<Xk+Xg && Vf<=Vh && Vz<=Vh){
         Vh = Vh - 0.01;
-        Xk = ((Vh*Vh)-(Vz*Vz))/(2*Ak);
-        Xg = ((Vh*Vh)-(Vf*Vf))/(2*Ag);
+        Xk = (1.8((Vh*Vh)-(Vz*Vz)))/(-3.6Ak+(S/K));
+        Xg = (1.8((Vh*Vh)-(Vf*Vf)))/(3.6Ag+(S/K))+(Vh*Fr);
     }
     if (Vf>Vh || Vz>Vh) {Err = 2;}
-    else {Ts = (Vh-Vz)/Ak + (Vh-Vf)/Ag + (Xe-Xk-Xg)/Vh;}
+    else {Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
 }
 
 }
