@@ -49,7 +49,7 @@ if (Vz>Vf) {
 
 if (Err == 0) {    
 //加速にかかる距離Xk(m)と減速にかかる距離Xg(m)を変数にする。
-var Xk = (1.8*((Vh*Vh)-(Vz*Vz)))/(-3.6*Ak+(S/K));
+var Xk = (1.8*((Vz*Vz)-(Vh*Vh)))/(-(3.6*Ak+(S/K)));
 var Xg = (1.8*((Vh*Vh)-(Vf*Vf)))/(3.6*Ag+(S/K))+(Vh*Fr);
     
 //勾配上での実質的な加速度減速度を算出(ver2.0)
@@ -63,7 +63,7 @@ else{
     //そもそもVhがVzやVfより低くなったらエラーなのでwhileの条件式に追加(Ver1.2)
     while (Xe<Xk+Xg && Vf<=Vh && Vz<=Vh){
         Vh = Vh - 0.01;
-        Xk = (1.8*((Vh*Vh)-(Vz*Vz)))/(-3.6*Ak+(S/K));
+        Xk = (1.8*((Vz*Vz)-(Vh*Vh)))/(-(3.6*Ak+(S/K)));
         Xg = (1.8*((Vh*Vh)-(Vf*Vf)))/(3.6*Ag+(S/K))+(Vh*Fr);
     }
     if (Vf>Vh || Vz>Vh) {Err = 2;}
