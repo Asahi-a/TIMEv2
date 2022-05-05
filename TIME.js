@@ -90,11 +90,11 @@ hTs.innerHTML ='<h1>駅間所要時間は'+Ts+'秒です。</h1><h2>駅間最高
 
 else if (Err == 1){
 let hTs = document.getElementById('hTs');
-hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速できません！</h1><h2>初速度をもう少し低く設定してください</h2>';
+hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速できません！</h1><h2>初速度をもう少し低く設定するか、次の区間と統合するなどしてください</h2>';
 //alert ('所定キョリ内で終速度まで減速できません！\n初速度をもう少し低く設定してください');
 }
 
 else if (Err == 2){
 let hTs = document.getElementById('hTs');
-hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速又は加速できません！</h1><h2>値を設定し直してください</h2>';
+hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速又は加速できません！</h1><h2>値を設定し直してください。もしくは次の区間と統合するなどしてください</h2>';
 }
