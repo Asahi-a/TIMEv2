@@ -61,7 +61,7 @@ if (Xk+Xg<=Xe) {Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
 else{
     //加速しきらない時制限速度を微減させ続ける。
     //そもそもVhがVzやVfより低くなったらエラーなのでwhileの条件式に追加(Ver1.2)
-    while (Xe<Xk+Xg && Vf<=Vh && Vz<=Vh){
+    while (Xe<Xk+Xg && Vf<Vh && Vz<Vh){
         Vh = Vh - 0.01;
         Xk = (1.8*((Vz*Vz)-(Vh*Vh)))/(-(3.6*Ak+(S/K)));
         Xg = (1.8*((Vh*Vh)-(Vf*Vf)))/(3.6*Ag+(S/K))+(Vh*Fr);
