@@ -42,7 +42,7 @@ Fr = prompt('空走時間s 参考)電車:新式は2秒､旧式は4秒、客車�
 //Vz>Vfの時に所定キョリ内で減速しきるのか。
 
 if (Vz>Vf) {
-    if (  Xe<(1.8((Vh*Vh)-(Vf*Vf)))/(3.6Ag+(S/K))+(Vh*Fr)  ) {
+    if ( Xe<(1.8((Vh*Vh)-(Vf*Vf)))/(3.6Ag+(S/K))+(Vh*Fr) ) {
         Err = 1;
 };}
 
@@ -68,9 +68,9 @@ else{
     }
     if (Vf>Vh || Vz>Vh) {Err = 2;}
     else {Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
-}
+;}
 
-}
+;}
 
 //値に3.6をかけたり四捨五入する(四捨五入はあくまで最終的な値なので最後にする)
 Vh = Vh*3.6;
