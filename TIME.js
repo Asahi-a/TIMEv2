@@ -53,8 +53,8 @@ var Xk = (1.8*((Vz*Vz)-(Vh*Vh)))/(-(3.6*Ak+(S/K)));
 var Xg = (1.8*((Vh*Vh)-(Vf*Vf)))/(3.6*Ag+(S/K))+(Vh*Fr);
     
 //勾配上での実質的な加速度減速度を算出(ver2.0)
-var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk)
-var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg))
+var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk);
+var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg));
 
 //この方法だと加減速しない場合加減速度がそれぞれ0になってしまう。加減速度は所要時間の分母にくるためバグが起きてしまう。そこでダミーの値を入れておく。
 if ( RAk=0 ) {RAk=1;}
