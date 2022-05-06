@@ -59,12 +59,16 @@ var Xk = (1.8*((Vz*Vz)-(Vh*Vh)))/(-(3.6*Ak+(S/K)));
 var Xg = (1.8*((Vh*Vh)-(Vf*Vf)))/(3.6*Ag+(S/K))+(Vh*Fr);
     
 //勾配上での実質的な加速度減速度を算出(ver2.0)
-var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk);
-var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg));
-    
-//この方法だと加減速しない場合加減速度がそれぞれ0になってしまう。また、XkやKgが0の場合は実質的な加速度がNaNとなってしまう。加減速度は所要時間の分母にくるためバグが起きてしまう。そこでダミーの値を入れておく。
-if ( RAk == 0 || RAk == NaN) {RAk=1;}
-else if ( RAg == 0 || RAg == NaN) {RAg=1;}
+//この方法だと加減速しない場合実質加減速度がそれぞれ0になってしまう。また、XkやKgが0の場合は実質的な加速度がNaNとなってしまう。
+//実質加減速度は所要時間の分母にくるためバグが起きてしまう。そこでダミーの値1を入れておく。ちなみにダミーの値が入る時は加減速しないので問題ない。
+
+//実質加速度
+if (Vh==Vz || Xk==0) {RAk=1;}
+else {var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk);}
+
+//実質減速度
+if (Vh==Vf || Xg==0) {RAg=1;}
+else {var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg));}
 
 //制限速度まで加速しきる時
 if (Xk+Xg<=Xe) {Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
@@ -77,7 +81,19 @@ else{
         Xg = (1.8*((Vh*Vh)-(Vf*Vf)))/(3.6*Ag+(S/K))+(Vh*Fr);
     }
     if (Vf>Vh || Vz>Vh) {Err = 2;}
-    else {Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
+    else {
+
+//最高速度が変わったので実質加減速度を求め直してからTsを求める。
+
+//実質加速度
+if (Vh==Vz || Xk==0) {RAk=1;}
+else {var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk);}
+
+//実質減速度
+if (Vh==Vf || Xg==0) {RAg=1;}
+else {var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg));}
+        
+Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
 ;}
 
 ;}
