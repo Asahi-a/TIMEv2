@@ -95,7 +95,7 @@ if (Err = !1 && Err = !3) {
 }
 
 
-
+/*
 if (Err = 0){
   hTs = document.getElementById('hTs');
   hTs.innerHTML = '<h1>駅間所要時間は' + Ts + '秒です。</h1><h2>駅間最高速度は' + Vh + 'km/hです。</h2>' + Xk + '\n' + Xg + '\n' + RAg + '\n' + RAk;
@@ -125,3 +125,5 @@ if (Err = 5){
   var hTs = document.getElementById('hTs');
   hTs.innerHTML = '<h1>勾配がきつすぎて止まれません！</h1><h2>減速度を強くしてください。/h2>';
 }
+
+*/
