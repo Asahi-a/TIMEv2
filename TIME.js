@@ -87,11 +87,11 @@ else{
 
 //実質加速度
 if (Vh==Vz || Xk==0) {RAk=1;}
-else {var RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk);}
+else {RAk = ((Vh*Vh)-(Vz*Vz))/(2*Xk);}
 
 //実質減速度
 if (Vh==Vf || Xg==0) {RAg=1;}
-else {var RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg));}
+else {RAg = -(((Vf*Vf)-(Vh*Vh))/(2*Xg));}
         
 Ts = (Vh-Vz)/RAk + (Vh-Vf)/RAg + (Xe-Xk-Xg)/Vh;}
 ;}
