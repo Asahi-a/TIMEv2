@@ -10,7 +10,8 @@ var Ts;//駅間所要時間
 var S;//勾配
 var K;//定数
 var Fr;//空走時間
-var Err = 0;//エラーの有無(0or1)
+var Err = 0;//エラーの種類
+var hTs;//HTMLに埋め込む結果文
 
 Ak = prompt('加速度km/h/s');
 Ag = prompt('減速度km/h/s(正の数で)');
@@ -31,11 +32,15 @@ Vh = Vh / 3.6;
 
 if (Vs > Vf && Xe < ((1.8 * ((Vs * Vs) - (Vf * Vf))) / (3.6 * Ag + S / K)) + Vh * Fr) {
   Err = 1;
-  let hTs = document.getElementById('hTs');
+  hTs = document.getElementById('hTs');
   hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速できません！</h1><h2>初速度をもう少し低く設定するか、次の区間と統合するなどしてください</h2>';
 }
 
-if (Err = 0) {
+if (Vh < Vs || Vf < Vs){
+  Err = 3;
+}
+
+if (Err = !1 && Err = !3) {
 
   var Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
   var Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr);
@@ -51,15 +56,19 @@ if (Err = 0) {
       if (Xk + Xg <= Xe) {
         ;
       } else {
-        Err = 1;
-        let hTs = document.getElementById('hTs');
+        Err = 2;
+        hTs = document.getElementById('hTs');
         hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速又は加速できません！</h1><h2>値を設定し直してください。もしくは次の区間と統合するなどしてください</h2>';
       }
     }
   }
+  
+  //while文でVhが変化したのでもう一回
+  Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
+  Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr);
+  
 
   if (Err = 0) {
-
     if (Vs == Vh || Xk == 0) {
       RAk = 1;
     } else {
@@ -79,9 +88,22 @@ if (Err = 0) {
     Ts = Math.round(Ts);
     Vh = Math.round(Vh);
 
-    let hTs = document.getElementById('hTs');
+    hTs = document.getElementById('hTs');
     hTs.innerHTML = '<h1>駅間所要時間は' + Ts + '秒です。</h1><h2>駅間最高速度は' + Vh + 'km/hです。</h2>' + Xk + '\n' + Xg + '\n' + RAg + '\n' + RAk;
 
   }
+}
+
+
+if (RAk < 0) {
+  Err = 4;
+  hTs = document.getElementById('hTs');
+  hTs.innerHTML = '<h1>勾配がきつすぎて登れません！</h1><h2>加速度を強くしてください。/h2>';
+}
+
+if (RAg < 0) {
+  Err = 5;
+  hTs = document.getElementById('hTs');
+  hTs.innerHTML = '<h1>勾配がきつすぎて止まれません！</h1><h2>減速度を強くしてください。/h2>';
 }
 
