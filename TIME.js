@@ -11,7 +11,7 @@ var S;//勾配
 var K;//定数
 var Fr;//空走時間
 var Err = 0;//エラーの種類
-var hTs = document.getElementById('hTs');//HTMLに埋め込む結果文
+var hTs;//HTMLに埋め込む結果文
 
 Ak = prompt('加速度km/h/s');
 Ag = prompt('減速度km/h/s(正の数で)');
