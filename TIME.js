@@ -31,8 +31,6 @@ Vh = Vh / 3.6;
 
 if (Vs > Vf && Xe < ((1.8 * ((Vs * Vs) - (Vf * Vf))) / (3.6 * Ag + S / K)) + Vh * Fr) {
   Err = 1;
-  var hTs = document.getElementById('hTs');
-  hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速できません！</h1><h2>初速度をもう少し低く設定するか、次の区間と統合するなどしてください</h2>';
 }
 
 if (Vh < Vs || Vf < Vs){
@@ -56,8 +54,6 @@ if (Err = !1 && Err = !3) {
         ;
       } else {
         Err = 2;
-        var hTs = document.getElementById('hTs');
-        hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速又は加速できません！</h1><h2>値を設定し直してください。もしくは次の区間と統合するなどしてください</h2>';
       }
     }
   }
@@ -87,22 +83,45 @@ if (Err = !1 && Err = !3) {
     Ts = Math.round(Ts);
     Vh = Math.round(Vh);
 
-    hTs = document.getElementById('hTs');
-    hTs.innerHTML = '<h1>駅間所要時間は' + Ts + '秒です。</h1><h2>駅間最高速度は' + Vh + 'km/hです。</h2>' + Xk + '\n' + Xg + '\n' + RAg + '\n' + RAk;
 
+  }
+  if (RAk < 0) {
+  Err = 4;
+  }
+  
+  if (RAg < 0) {
+  Err = 5;
   }
 }
 
 
-if (RAk < 0) {
-  Err = 4;
+
+if (Err = 0){
+  hTs = document.getElementById('hTs');
+  hTs.innerHTML = '<h1>駅間所要時間は' + Ts + '秒です。</h1><h2>駅間最高速度は' + Vh + 'km/hです。</h2>' + Xk + '\n' + Xg + '\n' + RAg + '\n' + RAk;
+}
+
+if (Err = 1){
+  var hTs = document.getElementById('hTs');
+  hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速できません！</h1><h2>初速度をもう少し低く設定するか、次の区間と統合するなどしてください</h2>';
+}
+
+if (Err = 2){
+  var hTs = document.getElementById('hTs');
+  hTs.innerHTML = '<h1>所定キョリ内で終速度まで減速又は加速できません！</h1><h2>値を設定し直してください。もしくは次の区間と統合するなどしてください</h2>';
+}
+
+if (Err = 3){
+  hTs = document.getElementById('hTs');
+    hTs.innerHTML = '<h1>初速度または終速度を最高速度よりも小さく設定しないでください！</h1>';
+}
+
+if (Err = 4){
   var hTs = document.getElementById('hTs');
   hTs.innerHTML = '<h1>勾配がきつすぎて登れません！</h1><h2>加速度を強くしてください。/h2>';
 }
 
-if (RAg < 0) {
-  Err = 5;
+if (Err = 5){
   var hTs = document.getElementById('hTs');
   hTs.innerHTML = '<h1>勾配がきつすぎて止まれません！</h1><h2>減速度を強くしてください。/h2>';
 }
-
