@@ -63,7 +63,7 @@ if (Err !== 1 && Err !== 3) {
   Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr);
   
 
-  if (Err = 0) {
+  if (Err == 0) {
     if (Vs == Vh || Xk == 0) {
       RAk = 1;
     } else {
