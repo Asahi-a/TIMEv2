@@ -37,7 +37,7 @@ if (Vh < Vs || Vf < Vs){
   Err = 3;
 }
 
-if (Err = !1 && Err = !3) {
+if (Err !== 1 && Err !== 3) {
 
   var Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
   var Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr);
@@ -85,12 +85,12 @@ if (Err = !1 && Err = !3) {
 
 
   }
-  if (RAk < 0) {
+  /*if (RAk < 0) {
   Err = 4;
   }
   
   if (RAg < 0) {
-  Err = 5;
+  Err = 5;*/
   }
 }
 
