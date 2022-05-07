@@ -7,7 +7,7 @@ var Vf;//終速度
 var Vh;//最高速度(制限速度)
 var Xe;//駅間距離
 var Ts;//駅間所要時間
-var S;//勾配
+var S;//勾配(-マイナスぶっこむ場合があるので式中では常にかっこで囲うこと)
 var K;//定数
 var Fr;//空走時間
 var Err = 0;//エラーの種類
@@ -29,7 +29,7 @@ Vs = Vs / 3.6;
 Vf = Vf / 3.6;
 Vh = Vh / 3.6;
 
-if (Vs > Vf && Xe < ((1.8 * ((Vs * Vs) - (Vf * Vf))) / (3.6 * Ag + S / K)) + Vh * Fr) {
+if (Vs > Vf && Xe < ((1.8 * ((Vs * Vs) - (Vf * Vf))) / (3.6 * Ag + (S) / K)) + Vh * Fr) {
   Err = 1;
 }
 
