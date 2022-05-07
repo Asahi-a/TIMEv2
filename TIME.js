@@ -76,7 +76,7 @@ if (Err !== 1 && Err !== 3) {
       RAg = ((Vh * Vh) - (Vf * Vf)) / (2 * Xg);
     }
 
-    Xe = ((Vh - Vs) / RAk) + ((Vh - Vs) / RAg) + ((Xe - Xk - Xg) / Vh);
+    Ts = ((Vh - Vs) / RAk) + ((Vh - Vs) / RAg) + ((Xe - Xk - Xg) / Vh);
 
     //m/s→km/h、四捨五入
     Vh = Vh * 3.6;
