@@ -41,11 +41,19 @@ if (Vh < Vs || Vh < Vf){
   Err = 3;
 }
 
+if ((-3.6 * Ak + (S / K)) > 0) {
+　Err = 4;
+}
+  
+if ((3.6 * Ag + (S / K)) < 0) {
+  Err = 5;
+}
+
 if (Err !== 1 && Err !== 3) {
 
   var Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
-  var Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr);
-
+  var Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr); 
+  
   while (Xk + Xg > Xe) {
     Vh = Vh - 0.01;
     if (Vh < Vs || Vh < Vf) {
@@ -88,13 +96,6 @@ if (Err !== 1 && Err !== 3) {
     Vh = Math.round(Vh);
 
 
-  }
-  if (RAk < 0) {
-  Err = 4;
-  }
-  
-  if (RAg < 0) {
-  Err = 5;
   }
 }
 
