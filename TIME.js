@@ -33,7 +33,7 @@ if (Vs > Vf && Xe < ((1.8 * ((Vs * Vs) - (Vf * Vf))) / (3.6 * Ag + S / K)) + Vh 
   Err = 1;
 }
 
-if (Vh < Vs || Vf < Vs){
+if (Vh < Vs || Vh < Vf){
   Err = 3;
 }
 
