@@ -98,7 +98,7 @@ if (Err !== 1 && Err !== 3) {
 
 if (Err == 0){
   hTs = document.getElementById('hTs');
-  hTs.innerHTML = '<h1>駅間所要時間は' + Ts + '秒です。</h1><h2>駅間最高速度は' + Vh + 'km/hです。</h2>' + Xk + '\n' + Xg + '\n' + RAg + '\n' + RAk;
+  hTs.innerHTML = '<h1>駅間所要時間は' + Ts + '秒です。</h1><h2>駅間最高速度は' + Vh + 'km/hです。</h2>' + Xk + '\n' + Xg + '\n' + RAk + '\n' + RAg;
 }
 
 if (Err == 1){
