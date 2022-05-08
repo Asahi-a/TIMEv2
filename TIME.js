@@ -52,7 +52,7 @@ if (Err !== 1 && Err !== 3 && Err !== 4 && Err !== 5) {
   var Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
   var Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr); 
   
-  while (Xk + Xg > Xe) {
+  /* while (Xk + Xg > Xe) {
     Vh = Vh - 0.01;
     if (Vh < Vs || Vh < Vf) {
       if (Vs >= Vf) {
@@ -66,7 +66,7 @@ if (Err !== 1 && Err !== 3 && Err !== 4 && Err !== 5) {
         Err = 2;
       }
     }
-  }
+  } */
   
   //while文でVhが変化したのでもう一回
   Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
