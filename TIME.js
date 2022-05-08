@@ -133,7 +133,7 @@ if (Err == 2){
 
 if (Err == 3){
   var hTs = document.getElementById('hTs');
-    hTs.innerHTML = '<h1>初速度または終速度を最高速度よりも小さく設定しないでください！</h1>';
+    hTs.innerHTML = '<h1>初速度または終速度を最高速度よりも大きく設定しないでください！</h1>';
 }
 
 if (Err == 4){
