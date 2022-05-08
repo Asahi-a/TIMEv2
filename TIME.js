@@ -50,23 +50,39 @@ if ((3.6 * Ag + (S / K)) <= 0) {
 if (Err !== 1 && Err !== 3 && Err !== 4 && Err !== 5) {
 
   var Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
-  var Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr); 
   
-  /* while (Xk + Xg > Xe) {
+  //Xgに関しては空走距離も含んでいるのでそのままだと減速なしの時も距離が0でなくなる。質が悪い場合だとそれでXk+Xg>Xeとなってしまう。
+  
+  if (Vh == Vf){
+    var Xg = 0;
+  } else {
+    var Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr); 
+  }
+  
+  //Err=2の状態のまま繰り返したら困るので修正
+  
+  while (Xk + Xg > Xe || Err !== 2) {
     Vh = Vh - 0.01;
+    Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
+    Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr);
+    
     if (Vh < Vs || Vh < Vf) {
       if (Vs >= Vf) {
         Vh = Vs;
       } else {
         Vh = Vf;
       }
+      
+      Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
+      Xg = ((1.8 * ((Vh * Vh) - (Vf * Vf))) / (3.6 * Ag + (S / K))) + (Vh * Fr);
+      
       if (Xk + Xg <= Xe) {
         ;
       } else {
         Err = 2;
       }
     }
-  } */
+  } 
   
   //while文でVhが変化したのでもう一回
   Xk = ((1.8 * ((Vs * Vs) - (Vh * Vh))) / (-3.6 * Ak + (S / K)));
