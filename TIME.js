@@ -121,10 +121,10 @@ if (Err == 3){
 
 if (Err == 4){
   var hTs = document.getElementById('hTs');
-  hTs.innerHTML = '<h1>勾配がきつすぎて登れません！</h1><h2>加速度を強くしてください。/h2>';
+  hTs.innerHTML = '<h1>勾配がきつすぎて登れません！</h1><h2>加速度を強くしてください。</h2>';
 }
 
 if (Err == 5){
   var hTs = document.getElementById('hTs');
-  hTs.innerHTML = '<h1>勾配がきつすぎて止まれません！</h1><h2>減速度を強くしてください。/h2>';
+  hTs.innerHTML = '<h1>勾配がきつすぎて止まれません！</h1><h2>減速度を強くしてください。</h2>';
 }
