@@ -100,7 +100,7 @@ if (Err !== 1 && Err !== 3 && Err !== 4 && Err !== 5) {
 
 
 if (Err == 0){
-  hTs = document.getElementById('hTs');
+  var hTs = document.getElementById('hTs');
   hTs.innerHTML = '<h1>駅間所要時間は' + Ts + '秒です。</h1><h2>駅間最高速度は' + Vh + 'km/hです。</h2>' + Xk + '\n' + Xg + '\n' + RAk + '\n' + RAg;
 }
 
@@ -115,7 +115,7 @@ if (Err == 2){
 }
 
 if (Err == 3){
-  hTs = document.getElementById('hTs');
+  var hTs = document.getElementById('hTs');
     hTs.innerHTML = '<h1>初速度または終速度を最高速度よりも小さく設定しないでください！</h1>';
 }
 
