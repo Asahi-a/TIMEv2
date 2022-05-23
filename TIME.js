@@ -100,10 +100,10 @@ if (Err !== 1 && Err !== 3 && Err !== 4 && Err !== 5) {
     if (Vf == Vh || Xg == 0) {
       RAg = 1;
     } else {
-      RAg = ((Vh * Vh) - (Vf * Vf)) / (2 * Xg);
+      RAg = ((Vh * Vh) - (Vf * Vf)) / (2 * (Xg - (Fr * Vh)));
     }
 
-    Ts = ((Vh - Vs) / RAk) + ((Vh - Vf) / RAg) + ((Xe - Xk - Xg) / Vh);
+    Ts = ((Vh - Vs) / RAk) + ((Vh - Vf) / RAg) + ((Xe - Xk - Xg) / Vh) + Fr;
 
     //m/s→km/h、四捨五入
     Vh = Vh * 3.6;
